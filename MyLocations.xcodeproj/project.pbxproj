@@ -14,6 +14,7 @@
 		F60152242971AD0D00CDD6B5 /* MyLocations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F60152222971AD0D00CDD6B5 /* MyLocations.xcdatamodeld */; };
 		F60152262971AD1200CDD6B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F60152252971AD1200CDD6B5 /* Assets.xcassets */; };
 		F60152292971AD1200CDD6B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F60152272971AD1200CDD6B5 /* LaunchScreen.storyboard */; };
+		F651BA0C2976E0FA006D586C /* LocationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651BA0B2976E0FA006D586C /* LocationDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F60152252971AD1200CDD6B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F60152282971AD1200CDD6B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F601522A2971AD1200CDD6B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F651BA0B2976E0FA006D586C /* LocationDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				F60152192971AD0D00CDD6B5 /* AppDelegate.swift */,
 				F601521B2971AD0D00CDD6B5 /* SceneDelegate.swift */,
 				F601521D2971AD0D00CDD6B5 /* CurrentLocationViewController.swift */,
+				F651BA0B2976E0FA006D586C /* LocationDetailsVC.swift */,
 				F601521F2971AD0D00CDD6B5 /* Main.storyboard */,
 				F60152252971AD1200CDD6B5 /* Assets.xcassets */,
 				F60152272971AD1200CDD6B5 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F601521E2971AD0D00CDD6B5 /* CurrentLocationViewController.swift in Sources */,
+				F651BA0C2976E0FA006D586C /* LocationDetailsVC.swift in Sources */,
 				F601521A2971AD0D00CDD6B5 /* AppDelegate.swift in Sources */,
 				F60152242971AD0D00CDD6B5 /* MyLocations.xcdatamodeld in Sources */,
 				F601521C2971AD0D00CDD6B5 /* SceneDelegate.swift in Sources */,
