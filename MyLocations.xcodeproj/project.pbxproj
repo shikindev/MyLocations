@@ -18,6 +18,8 @@
 		F651BA0E297705EC006D586C /* CategoryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651BA0D297705EC006D586C /* CategoryPickerVC.swift */; };
 		F651BA1029784056006D586C /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651BA0F29784055006D586C /* HudView.swift */; };
 		F651BA122979295C006D586C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651BA112979295C006D586C /* Functions.swift */; };
+		F651BA18297980AE006D586C /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651BA16297980AE006D586C /* Location+CoreDataClass.swift */; };
+		F651BA19297980AE006D586C /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651BA17297980AE006D586C /* Location+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		F651BA0D297705EC006D586C /* CategoryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerVC.swift; sourceTree = "<group>"; };
 		F651BA0F29784055006D586C /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		F651BA112979295C006D586C /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		F651BA16297980AE006D586C /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F651BA17297980AE006D586C /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,8 @@
 		F601520D2971AD0C00CDD6B5 = {
 			isa = PBXGroup;
 			children = (
+				F651BA16297980AE006D586C /* Location+CoreDataClass.swift */,
+				F651BA17297980AE006D586C /* Location+CoreDataProperties.swift */,
 				F60152182971AD0C00CDD6B5 /* MyLocations */,
 				F60152172971AD0C00CDD6B5 /* Products */,
 			);
@@ -181,8 +187,10 @@
 				F651BA0C2976E0FA006D586C /* LocationDetailsVC.swift in Sources */,
 				F601521A2971AD0D00CDD6B5 /* AppDelegate.swift in Sources */,
 				F651BA122979295C006D586C /* Functions.swift in Sources */,
+				F651BA19297980AE006D586C /* Location+CoreDataProperties.swift in Sources */,
 				F60152242971AD0D00CDD6B5 /* MyLocations.xcdatamodeld in Sources */,
 				F651BA0E297705EC006D586C /* CategoryPickerVC.swift in Sources */,
+				F651BA18297980AE006D586C /* Location+CoreDataClass.swift in Sources */,
 				F651BA1029784056006D586C /* HudView.swift in Sources */,
 				F601521C2971AD0D00CDD6B5 /* SceneDelegate.swift in Sources */,
 			);

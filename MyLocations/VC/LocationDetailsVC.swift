@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import CoreData
 
 
 private let dateFormatter : DateFormatter = {
@@ -23,6 +24,8 @@ class LocationDetailsVC : UITableViewController  {
     var placemark : CLPlacemark?
     var categoryName = "No category"
     
+    var manageObectContext : NSManagedObjectContext!
+    var date = Date()
     //MARK: - IBOutlets
     
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -48,7 +51,7 @@ class LocationDetailsVC : UITableViewController  {
         } else {
             adressLabel.text = "*** No adress found"
         }
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         //Hide Keyboard
         
@@ -75,22 +78,28 @@ class LocationDetailsVC : UITableViewController  {
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func done(_ sender: UIBarButtonItem) {
         
         guard let mainView = navigationController?.parent?.view else {return}
         let hudView = HudView.hud(inView: mainView, animated: true)
         hudView.text = "Tagged"
-        
-        afterDelay(0.6) {
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
+        let location = Location(context: manageObectContext)
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longtitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        do {
+            try manageObectContext.save()
+            afterDelay(0.6) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch {
+                fatalError("Error: \(error)")
         }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
-//            hudView.hide()
-//            self.navigationController?.popViewController(animated: true)
-//        }
-////        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
