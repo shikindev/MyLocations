@@ -117,7 +117,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description is here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-HH-06g">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Description is here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-HH-06g">
                                                     <rect key="frame" x="20" y="11" width="350" height="66"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <color key="textColor" systemColor="labelColor"/>

@@ -49,7 +49,25 @@ class LocationDetailsVC : UITableViewController  {
             adressLabel.text = "*** No adress found"
         }
         dateLabel.text = format(date: Date())
+        
+        //Hide Keyboard
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
+        
+        
         }
+    
+    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
+            return
+        }
+        descriptionTextView.resignFirstResponder()
+    }
     
     
     
@@ -58,8 +76,23 @@ class LocationDetailsVC : UITableViewController  {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func done(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        
+        guard let mainView = navigationController?.parent?.view else {return}
+        let hudView = HudView.hud(inView: mainView, animated: true)
+        hudView.text = "Tagged"
+        
+        afterDelay(0.6) {
+            hudView.hide()
+            self.navigationController?.popViewController(animated: true)
+        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+//            hudView.hide()
+//            self.navigationController?.popViewController(animated: true)
+//        }
+////        navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! CategoryPickerVC
         categoryName = controller.selectedCategoryName
@@ -103,4 +136,21 @@ class LocationDetailsVC : UITableViewController  {
             controller.selectedCategoryName = categoryName
         }
     }
+    
+    //MARK: - TableView Delegate
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+           return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
+    
 }
