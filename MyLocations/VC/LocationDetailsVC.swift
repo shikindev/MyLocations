@@ -24,8 +24,22 @@ class LocationDetailsVC : UITableViewController  {
     var placemark : CLPlacemark?
     var categoryName = "No category"
     
-    var manageObectContext : NSManagedObjectContext!
+    var managedObjectContext : NSManagedObjectContext!
     var date = Date()
+    
+    var locationToEdit : Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longtitude)
+                placemark = location.placemark
+            }
+        }
+    }
+    var descriptionText = ""
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -40,7 +54,11 @@ class LocationDetailsVC : UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionTextView.text = ""
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
+        
+        descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
         
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
@@ -83,8 +101,16 @@ class LocationDetailsVC : UITableViewController  {
         
         guard let mainView = navigationController?.parent?.view else {return}
         let hudView = HudView.hud(inView: mainView, animated: true)
-        hudView.text = "Tagged"
-        let location = Location(context: manageObectContext)
+        
+        let location : Location
+        if let temp = locationToEdit {
+            hudView.text = "Updated"
+            location = temp
+        } else {
+            hudView.text = "Tagged"
+            location = Location(context: managedObjectContext)
+        }
+        
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
         location.latitude = coordinate.latitude
@@ -92,7 +118,7 @@ class LocationDetailsVC : UITableViewController  {
         location.date = date
         location.placemark = placemark
         do {
-            try manageObectContext.save()
+            try managedObjectContext.save()
             afterDelay(0.6) {
                 hudView.hide()
                 self.navigationController?.popViewController(animated: true)

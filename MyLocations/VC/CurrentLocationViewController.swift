@@ -22,7 +22,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var lastGeocodingError : Error?
     
     var timer: Timer?
-    var manageObectContext : NSManagedObjectContext!
+    var manageObjectContext : NSManagedObjectContext!
     
     
     //MARK: - IBActionOutlets
@@ -272,7 +272,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             controller.coordinate = location!.coordinate
             controller.placemark = placemark
             
-            controller.manageObectContext = manageObectContext
+            controller.managedObjectContext = manageObjectContext
         }
     }
     
